@@ -7,9 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    
-<form name="" action="{% url 'attraction' %}"  method="GET">
 
+        <h1>{{value}} -> 세부여행지 정하기</h1>
+
+    
+<form name="" action="{% url 'attraction2' %}"  method="GET">
+        <input type = "text" name = "this_val" style="display: none;" value="{{value}}">
 
         <select name="select_place2"> 
                 <option value="">세부지역</option>
@@ -34,6 +37,12 @@
         </select>
 
 <input type="submit" value="확인">
+
+{%for i in attraction%}
+
+{{i}}
+
+{%endfor%}
 
     
     

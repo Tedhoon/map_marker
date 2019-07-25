@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+
+
+    <style>
+            .card{
+                    font-size: 20px;
+                    margin: 15px;
+                    border : solid 1px violet;
+                    width : 300px;
+        }
+        
+    </style>
 </head>
 
 <body id = 'body'>
@@ -41,21 +53,23 @@
 </form>
 
     
-            
-<form action="{% url 'next_select_page'%}" method="GET">
-
-        <input type ="text" name = "hi" id = "hidden_div" style="display: none;" value="{{value}}">
-        <input type ="submit" value="NEXT">
-
-</form>
+       
     
     
-
+<h1>선택한 지역 : {{value}} </h2>
 {%for attraction1 in attraction%}
 
-    <p>{{attraction1}}</p>
+<div class="card">{{attraction1}}</div>
 
 {%endfor%}
+
+     
+<form action="{% url 'next_select_page'%}" method="GET">
+
+                <input type ="text" name = "hi" id = "hidden_div" style="display: none;" value="{{value}}">
+                <input type ="submit" value="NEXT">
+        
+        </form>
 
 
 
