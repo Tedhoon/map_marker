@@ -50,14 +50,14 @@ def attraction(request):
                                 
                         
 
-    return render(request , 'place_select.html' , {'attraction' : attraction_get})
+    return render(request , 'place_select.html' , {'attraction' : attraction_get , 'value' : pick})
 
 
 
 
 def next_select_page(request):
     if request.method == 'GET':
-        pick = request.GET['select_place']
+        pick = request.GET['hi']
         
         return render(request , 'next_select/' + pick + '.html')
 

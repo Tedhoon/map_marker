@@ -5,30 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-<script>
-        function hello(){
-
-            
-            
-                document.getElementById('body').innerHTML = "<form name='' action='{% url 'next_select' %}'  method='GET'>" + document.getElementById('body').innerHTML;
-        };
-        function hi(){
-                
-                document.getElementById('hidden_div').innerHTML = document.getElementById('select_value').val()
-        };
-</script>
 </head>
 
 <body id = 'body'>
     
         <h1>가고싶은 곳은? - 큰 지역 설정</h1>
-
-
-<form action="" method="GET" name="">
-
-    <div id = "hidden_div" style="display: none;"></div>
-</form>
-    
 
 
 <form name="" action="{% url 'attraction' %}"  method="GET">
@@ -55,27 +36,27 @@
                 
         </select>
 
-<input type="submit" value="확인" onclick="hi();">
-<input type ="button" value ="결정" onclick = "hello();">
-
-<input type="submit" value="NEXT">
-
+<input type="submit" value="확인">
 
 </form>
-</form>
 
-<form action="" method="GET" name="">
-
-                <div id = "hidden_div" style="display: none;"></div>
-            </form>
     
             
+<form action="{% url 'next_select_page'%}" method="GET">
+
+        <input type ="text" name = "hi" id = "hidden_div" style="display: none;" value="{{value}}">
+        <input type ="submit" value="NEXT">
+
+</form>
+    
+    
 
 {%for attraction1 in attraction%}
 
     <p>{{attraction1}}</p>
 
 {%endfor%}
+
 
 
 

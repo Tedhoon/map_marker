@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('' , place_select , name = "place_select"),
     path('attraction/', attraction , name = "attraction" ),
-    path('next_select_page/', next_select_page, name = "next_select"),
+    path('next_select_page/', next_select_page, name = "next_select_page"),
 ]   
