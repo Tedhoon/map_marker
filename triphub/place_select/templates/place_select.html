@@ -103,15 +103,8 @@
 <h2>선택한 지역 : {{value}} </h2>
 
 <div class="card_section">
-{%for i in attraction%}
-<div class="card"> {{i}} </div>
-{%endfor%}
-</div>
-
-
-<div class="card_section">
-{%for i in introduction%}
-<div class="card">{{i}}</div>
+{%for k,v in attraction.items %}
+<div class="card"> {{k}} <br> {{v}}</div>
 {%endfor%}
 </div>
 
