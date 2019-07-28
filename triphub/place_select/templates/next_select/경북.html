@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+
+{% extends 'base2.html' %}
+{% block content1 %}
+
+
 
         <select name="select_place2"> 
                 <option value="경산">경산</option>
@@ -33,9 +29,5 @@
                 <option value="칠곡">칠곡</option>
                 <option value="포항">포항</option>
             </select>
-    
-    <input type="submit" value="확인">
-    
-    
-</body>
-</html>
+
+            {% endblock %}
