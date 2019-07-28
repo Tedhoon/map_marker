@@ -36,7 +36,7 @@ def attraction(request):
                         req2 = requests.get("https://m.search.naver.com"+link['href'])
                         html2 = req2.text
 
-                        soup2 =bs (html2,'html.parser')
+                        soup2 =bs(html2,'html.parser')
 
                         attractions = soup2.findAll('div' , {'class' : 'info'})
                         
