@@ -10,6 +10,7 @@ def place_select(request):
 
 def attraction(request):
     attraction_get = []
+    introduction_get = []
     if request.method == 'GET':
         pick = request.GET['select_place']
         
@@ -42,15 +43,21 @@ def attraction(request):
                         
                         for attraction in attractions:
                             at = attraction.find_all('strong' ,{'class' : 'tit'})
+                            introduction= attraction.find_all('span' ,{'class' : 'txt'})
+                            
                             
                             
                             for hi in at:
                                 hello = hi.text
                                 attraction_get.append(hello)
-                                
+
+                            for hi2 in introduction:
+                                hello2 = hi2.text
+                                introduction_get.append(hello2)
+                
                         
 
-    return render(request , 'place_select.html' , {'attraction' : attraction_get , 'value' : pick})
+    return render(request , 'place_select.html' , {'attraction' : attraction_get , 'introduction':introduction_get, 'value' : pick})
 
 
 

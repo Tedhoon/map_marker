@@ -52,6 +52,9 @@
         select{
             border-radius: 10px;
         }
+        .card_section{
+            float: left;
+        }
 
 </style>
         
@@ -62,7 +65,7 @@
 
     <section>
     
-        <h1>가고싶은 곳은? - 큰 지역 설정1</h1>
+        <h1>가고싶은 곳은? - 큰 지역 설정</h1>
 
         
 
@@ -97,15 +100,23 @@
 
            
     
-<se>선택한 지역 : {{value}} </h2>
-{%for attraction1 in attraction%}
+<h2>선택한 지역 : {{value}} </h2>
 
-
-<div class="card"> {{attraction1}} </div>
-
-
-
+<div class="card_section">
+{%for i in attraction%}
+<div class="card"> {{i}} </div>
 {%endfor%}
+</div>
+
+
+<div class="card_section">
+{%for i in introduction%}
+<div class="card">{{i}}</div>
+{%endfor%}
+</div>
+
+
+
 
      
 <form action="{% url 'next_select_page'%}" method="GET">
