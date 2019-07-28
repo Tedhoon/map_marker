@@ -10,7 +10,6 @@ def place_select(request):
 
 def attraction(request):
     attraction_get = []
-    
     total = {}
     if request.method == 'GET':
         pick = request.GET['select_place']
@@ -66,6 +65,8 @@ def next_select_page(request):
 
 def attraction2(request):
     attraction_get = []
+    total = {}
+
     if request.method == 'GET':
         pick = request.GET['select_place2']
         # 강원 안에 있는 강릉
@@ -124,12 +125,14 @@ def attraction2(request):
 
                                         for inner in inner_attractions2:
                                             inner2 = inner.find_all('strong' ,{'class' : 'tit'})
+                                            introduction= inner.find_all('span' ,{'class' : 'txt'})
+                                            
+                                            for i,v in zip(inner2,introduction):
+                                                total[i.text]=v.text
 
-                                            for in2 in inner2:
-                                                yes = in2.text
-                                                attraction_get.append(yes)
 
+                                            
 
 
                                 
-    return render(request , 'next_select/' + area + '.html' , {'attraction' : attraction_get , 'value' : pick})
+    return render(request , 'next_select/' + area + '.html' , {'attraction' : total , 'value' : pick})
