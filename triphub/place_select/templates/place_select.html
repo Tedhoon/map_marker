@@ -23,9 +23,11 @@
         }
         section{
             background-color: white;
-            padding: 10px;
-            margin-top: 30px;
+            padding : 15px 0 10px 25px;
+            margin: 10px 100px 20px 0;
             border-radius: 10px;
+            width : 20%;
+            float: left;
 
         }
         
@@ -42,7 +44,7 @@
             border-radius: 5px; 
             box-shadow: 0px 2px 3px 2px rgba(95, 62, 62, 0.623);
             background: linear-gradient(to left, #8E54E9, #4776E6);
-            float: left;
+            
             margin-right:10px; 
         }
         .card:hover{ 
@@ -139,10 +141,10 @@
 <input type="submit" value="확인" class="button">
 
 </form>
-
-           
+    </section>
+        <section>  
     
-<h2>선택한 지역 : {{value}} </h2>
+<h2> {{value}}에 가면 꼭 가야할 곳! </h2>
 
 <div class="card_section">
 {%for k,v in attraction.items %}
@@ -150,9 +152,9 @@
 {%endfor%}
 </div>
 
+    </section>
 
-
-
+<section>
      
 <form action="{% url 'next_select_page'%}" method="GET">
 
