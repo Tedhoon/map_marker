@@ -135,4 +135,4 @@ def attraction2(request):
 
 
                                 
-    return render(request , 'next_select/' + area + '.html' , {'attraction' : total , 'value' : pick})
+    return render(request , 'next_select/' + area + '.html' , {'attraction' : total , 'value' : area})
