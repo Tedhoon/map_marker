@@ -1,23 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>base1</title>
+    <style>
 
-{% extends 'base2.html' %}
-{% block content1 %}
+body{
+    margin : 0 5%;
+
+}
 
 
 
-        <select name="select_place2"> 
-                <option value="괴산">괴산</option>
-                <option value="단양">단양</option>
-                <option value="보은">보은</option>
-                <option value="영동">영동</option>
-                <option value="옥천">옥천</option>
-                <option value="음성">음성</option>
-                <option value="제천">제천</option>
-                <option value="증평">증평</option>
-                <option value="진천">진천</option>
-                <option value="청주">청주</option>
-                <option value="충주">충주</option>
-             
-            </select>
+.top__{
+    width : 1388px;
+    height : 60px;
+    border : solid black 2px;
+    margin : 40px;
+
+}
+.trip_space{
+    width : 700px ;
+    height : 500px;
+    border : solid black 2px;
+    margin : 0 40px;
+    float: left;
+    border-radius: 30px;
+
+}
+
+
+.select_box{
+    width : 300px;
+    height : 480px;
+    border : solid black 2px;
+    padding-top : 20px;
+    float: left;
+    border-radius: 30px;
+
+}
+
+.chatting{
+    width : 300px;
+    height : 350px;
+    border : solid black 2px;
+    margin : 0 40px;
+    float: left;
+    border-radius: 30px;
+
     
+}
 
-            {% endblock %}
+
+
+.weather{
+    width : 300px;
+    height : 130px;
+    border : solid black 2px;
+    margin : 16px 40px;
+    float: left;
+    border-radius: 30px;
+
+    
+}
+
+
+.selectttt_boxx{
+
+    width : 230px;
+    height : 60px;
+    text-align: center;
+    border : solid black 2px;
+    margin : 2px 30px;
+    border-radius: 25px;
+
+
+}
+
+
+        </style>
+        <script>
+                $(document).ready(function(){
+                    $(".card_section").on({
+                        'dragstart' : function(e){
+                            e.originalEvent.dataTransfer.setData('text', e.target.id);
+                            
+                        }
+                    });
+            
+                    $(".trip_space").on({
+                        'dragenter' : function(e){
+                            $(this).css('background-color','black');
+                        },
+                        'dragleave' : function(e){
+                            $(this).css('background-color','black');
+                            
+                        },
+                        'dragover' : function(e){
+                            $(this).css('background-color','black');
+                            
+                        },
+                        'drop' : function(e){
+                            $(e.target).append($( '#' + e.originalEvent.dataTransfer.getData('text')));
+                            e.preventDefault();
+                            
+                        }
+                    
+                });
+                });
+            
+            </script>
+</head>
+<body>
+    <section class="top__"></section>
+    
+    <section class="trip_space" id="trip_space">
+
+            <h1>{{value}} -> 세부여행지 정하기</h1>
+
+            <form name="" action="{% url 'attraction2' %}"  method="GET">
+                    <input type = "text" name = "this_val" style="display: none;" value="{{value}}">
+                    {% block content1 %}
+                    {% endblock %}
+            
+            <input type="submit" value="확인">
+            </form>
+            
+            {%for i in attraction%}
+            
+            {{i}}
+            
+            {%endfor%}
+
+    </section>
+
+    <section class="select_box" id="select_box">
+
+    </section>
+
+    <section class="chatting">
+        {% block chatting %}
+        {% endblock %}
+
+    </section>
+
+    <section class="weather">
+        {% block weather %}
+        {% endblock %}
+
+    </section>
+    
+</body>
+</html>

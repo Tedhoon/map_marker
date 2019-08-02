@@ -115,7 +115,7 @@
 <input type="submit" value="확인" class="button">
 </form>
 
-<div class="card_section">
+<div class="card_section" ondrop="drop(event)" ondragover="allowDrop(event)">
         {%for k,v in attraction.items %}
         <div class="card"><h3>{{k}}</h3> <br> {{v}}</div>
         {%endfor%}

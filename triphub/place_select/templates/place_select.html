@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
 
 <style>
@@ -29,16 +31,19 @@
             width : 20%;
             float: left;
 
+
+            
+
         }
         
 
     
         .card{
-
+            
             text-align: center;
             font-weight: 500;
             width: 200px;
-            margin-bottom: 10px;
+            margin-bottom: 50px;
             padding :5px;
             color: white;
             border-radius: 5px; 
@@ -56,6 +61,7 @@
         }
         .card_section{
             float: left;
+            
         }
 
 
@@ -99,8 +105,59 @@
             width:100%;
             transition:800ms ease all;
           }
+          .trip_space{
+            background-color: white;
+            padding : 15px 0 10px 25px;
+            margin: 10px 100px 20px 0;
+            border-radius: 10px;
+            width : 20%;
+            height: 400px;
+            float: left;
+
+          }
          
 </style>
+<script>
+   function allowDrop(ev){
+    //방법1
+    var digit = ev.target.id;
+    var num = parseInt(digit);
+
+
+
+        if ((digit != "trip_space") && (digit != "card_section")){
+            return;
+        }
+ 
+        else {
+            ev.preventDefault();
+        // console.log(digit);
+        }
+       
+   }
+   function drag(ev){
+       ev.dataTransfer.setData("text",ev.target.id);
+   }
+   function drop(ev){
+       ev.preventDefault();
+       var data = ev.dataTransfer.getData("text");
+       ev.target.appendChild(document.getElementById(data));
+   }
+
+   var id=0;
+   function test_id() {
+    
+       //document.getElementsByClassName("card").getAttribute('id')= "i";
+       document.getElementsByClassName("card").setAttribute('id' ,'hello');
+       
+    
+       };
+       
+   
+
+
+
+</script>
         
     
 </head>
@@ -138,20 +195,25 @@
                 
         </select>
 
-<input type="submit" value="확인" class="button">
+<input type="submit" value="확인" class="button" >
 
 </form>
     </section>
-        <section>  
+
+    <section class="card_section" id="card_section" ondrop="drop(event)" ondragover="allowDrop(event)" >  
     
-<h2> {{value}}에 가면 꼭 가야할 곳! </h2>
+        <h2> {{value}}에 가면 꼭 가야할 곳! </h2>
 
 
-<div class="card_section">
-{%for k,v in attraction.items %}
-<div class="card"><h3>{{k}}</h3> <br> {{v}}</div>
-{%endfor%}
-</div>
+
+
+
+            {%for k,v in attraction.items %}    
+                <div class="card" id="{{forloop.counter}}" draggable="true" ondragstart="drag(event)"><h3>{{k}}</h3> <br> {{v}}</div></>
+                    
+            
+            {%endfor%}
+
 
     </section>
 
@@ -163,6 +225,10 @@
                 <input type ="submit" value="NEXT" class ="button">
         
         </form>
+
+    </section>
+    <section class='trip_space' id="trip_space" ondrop="drop(event)" ondragover="allowDrop(event)">
+
 
     </section>
 

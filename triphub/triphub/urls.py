@@ -23,4 +23,5 @@ urlpatterns = [
     path('attraction/', attraction , name = "attraction" ),
     path('attraction2/', attraction2 , name ="attraction2"),
     path('next_select_page/', next_select_page, name = "next_select_page"),
+    
 ]   
