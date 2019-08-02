@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,29 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
-
-
+    
 <style>
         
         @import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap');
                 
         
         body{
-            
             font-family: 'Nanum Pen Script', cursive;
-            
+            margin : 50px 200px 200px 200px;
             background: rgba(201, 255, 191, 0.438);  /* fallback for old browsers */
             background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);  /* Chrome 10-25, Safari 5.1-6 */
             background: linear-gradient(to right, #FFAFBD, #C9FFBF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            
+
         }
         section{
-            background-color: rgba(230, 228, 228, 0.522);
-            padding : 20px;
-            margin-left: 20%;
-            margin-top : 2%;
+            background-color: white;
+            padding : 15px 0 10px 25px;
+            margin: 10px 100px 20px 0;
             border-radius: 10px;
+            width : 20%;
             float: left;
 
         }
@@ -35,6 +35,7 @@
 
     
         .card{
+
             text-align: center;
             font-weight: 500;
             width: 200px;
@@ -43,7 +44,8 @@
             color: white;
             border-radius: 5px; 
             box-shadow: 0px 2px 3px 2px rgba(95, 62, 62, 0.623);
-            background: linear-gradient(to left, #8E54E9, #4776E6);    
+            background: linear-gradient(to left, #8E54E9, #4776E6);
+            
             margin-right:10px; 
         }
         .card:hover{ 
@@ -52,8 +54,6 @@
         }
         select{
             border-radius: 10px;
-            margin-left: 20%;
-            margin-top: 15px;
         }
         .card_section{
             float: left;
@@ -100,98 +100,25 @@
             width:100%;
             transition:800ms ease all;
           }
-        
-          .next_button{
-            
-            position:absolute;
-            right: 20%;
-            top:15px;
-        }
-        
-        
-        .main_name{
-
-            font-weight: 600;
-            font-size: 20px;
-            color: white;
-            position: absolute;
-            top: 15px;
-            left: 50%;
-    
-            }
-             
-    
-        *{
-        margin: 0;
-        padding: 0;
-        }
-
-        .navbar{
-            height: 55px;
-            background: #4776E6;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to left, #8E54E9, #4776E6);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to left, #8E54E9, #4776E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        .navbar-brand{
-        
-        text-decoration: none;
-        font-size: 20px;
-        color: white;
-        position: absolute;
-        top: 16px;
-        left: 60px;
-        }
+         
 </style>
-        
     
 </head>
 
 <body>
 
-<nav class="navbar">
-                                
-    <form name="" action="{% url 'attraction2' %}"  method="GET">
-        <input type = "text" name = "this_val" style="display: none;" value="{{value}}">
-            {% block content1 %}
-            {% endblock %}
+        <h1>{{value}} -> 세부여행지 정하기</h1>
+
     
+<form name="" action="{% url 'attraction2' %}"  method="GET">
+        <input type = "text" name = "this_val" style="display: none;" value="{{value}}" >
+        {% block content1 %}
+        {% endblock %}
 
-        <input type="submit" value="카드생성" class="button">
+<input type="submit" value="확인" class="button">
+</form>
 
-    </form>
     
-    <div class="main_name">{{value}}</div>
-
-                    
-</nav>
-
-
-                  
-    
-<section>  
-        
-    <h2> 여행지 카드 </h2>
-    <br>
-    <br>
-
-
-<<<<<<< HEAD
-<div class="card_section" ondrop="drop(event)" ondragover="allowDrop(event)">
-=======
-    <div class="card_section">
->>>>>>> 61f49f904aedc69a45304147c6ebb669f7d664ac
-        {%for k,v in attraction.items %}
-            <div class="card"> <h3> {{k}} </h3> <br> {{v}}</div>
-        {%endfor%}
-    </div>
-
-   
-
-</section>
-
-
-
-
     
 </body>
 </html>

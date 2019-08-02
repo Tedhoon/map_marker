@@ -16,19 +16,20 @@
                 
         
         body{
+            
             font-family: 'Nanum Pen Script', cursive;
-            margin : 50px 200px 200px 200px;
+            
             background: rgba(201, 255, 191, 0.438);  /* fallback for old browsers */
             background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);  /* Chrome 10-25, Safari 5.1-6 */
             background: linear-gradient(to right, #FFAFBD, #C9FFBF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+            
         }
         section{
-            background-color: white;
-            padding : 15px 0 10px 25px;
-            margin: 10px 100px 20px 0;
+            background-color: rgba(230, 228, 228, 0.522);
+            padding : 20px;
+            margin-left: 20%;
+            margin-top : 2%;
             border-radius: 10px;
-            width : 20%;
             float: left;
 
 
@@ -39,7 +40,10 @@
 
     
         .card{
+<<<<<<< HEAD
             
+=======
+>>>>>>> 61f49f904aedc69a45304147c6ebb669f7d664ac
             text-align: center;
             font-weight: 500;
             width: 200px;
@@ -48,8 +52,7 @@
             color: white;
             border-radius: 5px; 
             box-shadow: 0px 2px 3px 2px rgba(95, 62, 62, 0.623);
-            background: linear-gradient(to left, #8E54E9, #4776E6);
-            
+            background: linear-gradient(to left, #8E54E9, #4776E6);    
             margin-right:10px; 
         }
         .card:hover{ 
@@ -58,6 +61,8 @@
         }
         select{
             border-radius: 10px;
+            margin-left: 20%;
+            margin-top: 15px;
         }
         .card_section{
             float: left;
@@ -105,6 +110,7 @@
             width:100%;
             transition:800ms ease all;
           }
+<<<<<<< HEAD
           .trip_space{
             background-color: white;
             padding : 15px 0 10px 25px;
@@ -116,6 +122,49 @@
 
           }
          
+=======
+        
+          .next_button{
+            
+            position:absolute;
+            right: 20%;
+            top:15px;
+        }
+        
+        
+        .main_name{
+
+            font-weight: 600;
+            font-size: 20px;
+            color: white;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+    
+            }
+             
+    
+        *{
+        margin: 0;
+        padding: 0;
+        }
+
+        .navbar{
+            height: 55px;
+            background: #4776E6;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #8E54E9, #4776E6);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #8E54E9, #4776E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .navbar-brand{
+        
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        position: absolute;
+        top: 16px;
+        left: 60px;
+        }
+>>>>>>> 61f49f904aedc69a45304147c6ebb669f7d664ac
 </style>
 <script>
    function allowDrop(ev){
@@ -164,13 +213,9 @@
 
 <body>
 
-    <section>
-    
-        <h1>가고싶은 곳은? - 큰 지역 설정</h1>
-
-        
-
-<form name="" action="{% url 'attraction' %}"  method="GET">
+<nav class="navbar">
+                                
+    <form name="" action="{% url 'attraction' %}"  method="GET">
 
 
         <select name="select_place" id = "select_value"> 
@@ -195,6 +240,7 @@
                 
         </select>
 
+<<<<<<< HEAD
 <input type="submit" value="확인" class="button" >
 
 </form>
@@ -203,8 +249,25 @@
     <section class="card_section" id="card_section" ondrop="drop(event)" ondragover="allowDrop(event)" >  
     
         <h2> {{value}}에 가면 꼭 가야할 곳! </h2>
+=======
+        <input type="submit" value="카드생성" class="button">
 
+    </form>
+    
+    <div class="main_name">{{value}}</div>
 
+            
+    <form action="{% url 'next_select_page'%}" method="GET" class ="next_button">
+>>>>>>> 61f49f904aedc69a45304147c6ebb669f7d664ac
+
+            <input type ="text" name = "hi" id = "hidden_div" style="display: none;" value="{{value}}">
+            <input type ="submit" value="NEXT" class ="button">
+    
+    </form>
+                    
+</nav>
+
+<<<<<<< HEAD
 
 
 
@@ -214,23 +277,37 @@
             
             {%endfor%}
 
+=======
+>>>>>>> 61f49f904aedc69a45304147c6ebb669f7d664ac
 
-    </section>
+                    
 
-<section>
-     
-<form action="{% url 'next_select_page'%}" method="GET">
 
-                <input type ="text" name = "hi" id = "hidden_div" style="display: none;" value="{{value}}">
-                <input type ="submit" value="NEXT" class ="button">
+    
+<section>  
         
-        </form>
+    <h2> 여행지 카드 </h2>
+    <br>
+    <br>
 
+
+    <div class="card_section">
+        {%for k,v in attraction.items %}
+            <div class="card"> <h3> {{k}} </h3> <br> {{v}}</div>
+        {%endfor%}
+    </div>
+
+   
+
+<<<<<<< HEAD
     </section>
     <section class='trip_space' id="trip_space" ondrop="drop(event)" ondragover="allowDrop(event)">
 
 
     </section>
+=======
+</section>
+>>>>>>> 61f49f904aedc69a45304147c6ebb669f7d664ac
 
 
 
